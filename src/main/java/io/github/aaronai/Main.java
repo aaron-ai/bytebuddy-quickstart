@@ -28,13 +28,10 @@ public class Main {
         }
     }
 
-    public static void main(
-        String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public static void main(String[] args) {
         ByteBuddyAgent.install();
         final Instrumentation inst = ByteBuddyAgent.getInstrumentation();
-        Class.forName("io.github.aaronai.Main", true, ClassLoader.getSystemClassLoader())
-            .getDeclaredMethod("premain", String.class, Instrumentation.class)
-            .invoke(null, "", inst);
+        Main.premain("", inst);
         final Foobar foobar = new Foobar();
         foobar.go();
     }
