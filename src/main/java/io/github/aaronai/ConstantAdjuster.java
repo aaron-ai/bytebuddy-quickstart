@@ -1,4 +1,4 @@
-package io.github.aaronai.example1;
+package io.github.aaronai;
 
 import java.security.ProtectionDomain;
 import net.bytebuddy.agent.builder.AgentBuilder;

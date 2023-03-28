@@ -1,4 +1,4 @@
-package io.github.aaronai.example1;
+package io.github.aaronai;
 
 import net.bytebuddy.agent.builder.AgentBuilder;
 import net.bytebuddy.description.method.MethodDescription;
@@ -7,7 +7,7 @@ import net.bytebuddy.matcher.ElementMatcher;
 public class TypeTransformerImpl implements TypeTransformer {
     private AgentBuilder.Identified.Extendable agentBuilder;
 
-    TypeTransformerImpl(AgentBuilder.Identified.Extendable agentBuilder) {
+    public TypeTransformerImpl(AgentBuilder.Identified.Extendable agentBuilder) {
         this.agentBuilder = agentBuilder;
     }
 
@@ -25,7 +25,7 @@ public class TypeTransformerImpl implements TypeTransformer {
         agentBuilder = agentBuilder.transform(transformer);
     }
 
-    AgentBuilder.Identified.Extendable getAgentBuilder() {
+    public AgentBuilder.Identified.Extendable getAgentBuilder() {
         return agentBuilder;
     }
 }

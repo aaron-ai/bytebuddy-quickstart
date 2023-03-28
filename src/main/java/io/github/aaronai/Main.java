@@ -1,4 +1,4 @@
-package io.github.aaronai.example1;
+package io.github.aaronai;
 
 import java.lang.instrument.Instrumentation;
 import java.lang.reflect.InvocationTargetException;
@@ -9,9 +9,10 @@ import net.bytebuddy.agent.builder.AgentBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Example {
-    private static final Logger logger = LoggerFactory.getLogger(Example.class);
+public class Main {
+    private static final Logger logger = LoggerFactory.getLogger(io.github.aaronai.Main.class);
 
+    @SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
     public static List<TypeInstrumentation> typeInstrumentations() {
         return Arrays.asList(new FoobarInstrumentation());
     }
@@ -31,7 +32,7 @@ public class Example {
         String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         ByteBuddyAgent.install();
         final Instrumentation inst = ByteBuddyAgent.getInstrumentation();
-        Class.forName("io.github.aaronai.example1.Example", true, ClassLoader.getSystemClassLoader())
+        Class.forName("io.github.aaronai.Main", true, ClassLoader.getSystemClassLoader())
             .getDeclaredMethod("premain", String.class, Instrumentation.class)
             .invoke(null, "", inst);
         final Foobar foobar = new Foobar();

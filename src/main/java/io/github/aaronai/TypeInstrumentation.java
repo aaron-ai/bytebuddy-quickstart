@@ -1,4 +1,4 @@
-package io.github.aaronai.example1;
+package io.github.aaronai;
 
 import static net.bytebuddy.matcher.ElementMatchers.any;
 

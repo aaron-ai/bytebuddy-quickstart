@@ -1,4 +1,4 @@
-package io.github.aaronai.example1;
+package io.github.aaronai;
 
 import net.bytebuddy.asm.Advice;
 import net.bytebuddy.description.type.TypeDescription;
@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static net.bytebuddy.matcher.ElementMatchers.isMethod;
-
 import static net.bytebuddy.matcher.ElementMatchers.named;
 
 public class FoobarInstrumentation implements TypeInstrumentation {
@@ -15,7 +14,7 @@ public class FoobarInstrumentation implements TypeInstrumentation {
 
     @Override
     public ElementMatcher<TypeDescription> typeMatcher() {
-        return named("io.github.aaronai.example1.Foobar");
+        return named("io.github.aaronai.Foobar");
     }
 
     @Override
@@ -23,6 +22,7 @@ public class FoobarInstrumentation implements TypeInstrumentation {
         transformer.applyAdviceToMethod(isMethod().and(named("go")), FoobarInstrumentation.class.getName() + "$GoAdvice");
     }
 
+    @SuppressWarnings("unused")
     public static class GoAdvice {
         @Advice.OnMethodEnter(suppress = Throwable.class)
         public static void onStart() {
