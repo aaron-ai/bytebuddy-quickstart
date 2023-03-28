@@ -1,4 +1,4 @@
-package io.github.aaronai;
+package io.github.aaronai.example0;
 
 import net.bytebuddy.ByteBuddy;
 import net.bytebuddy.agent.ByteBuddyAgent;
