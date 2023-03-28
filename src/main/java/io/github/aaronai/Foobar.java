@@ -21,9 +21,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Foobar {
-    private static final Logger log = LoggerFactory.getLogger(Main.class);
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public void go() {
-        log.info("This is Foobar#go");
+        logger.info("This is Foobar#go");
     }
 }
